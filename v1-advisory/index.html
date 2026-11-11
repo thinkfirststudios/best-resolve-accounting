@@ -12,9 +12,14 @@
 <!-- Spec mockup. Values marked [CONFIRM] are unverified and must be confirmed before launch. -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["AccountingService","Organization"],"name":"Best Resolve Accounting","telephone":"(619) 854-1434","email":"bestresolveaccntng@gmail.com","areaServed":"San Diego, CA","sameAs":["https://www.facebook.com/bestresolveaccounting","https://www.instagram.com/bestresolveaccounting/"]}</script>
 <style>
-  .price-list{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.5rem}
-  .price-list li{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid rgba(0,0,0,.12);padding:.45rem 0}
-  .price-list strong{white-space:nowrap}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);max-width:1080px;margin:0 auto}
+  .price-grid h3{margin:0 0 .5rem}
+  .price-list{list-style:none;padding:0;margin:0;display:grid;gap:0}
+  .price-list li{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;border-bottom:1px solid rgba(0,0,0,.12);padding:1rem 0}
+  .price-list li > span{flex:1}
+  .price-list small{display:block;margin-top:.25rem;line-height:1.5;font-size:.95rem}
+  .price-list > li > strong{white-space:nowrap}
+  @media(max-width:800px){.price-grid{grid-template-columns:1fr}}
   .form .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
   @media(max-width:600px){.form .row2{grid-template-columns:1fr}}
 </style>
@@ -82,17 +87,17 @@
 </div></section>
 <section class="process" id="pricing"><div class="wrap">
   <div class="sec-head center reveal"><span class="eyebrow">Pricing</span><h2>Every price, published</h2></div>
-  <div class="docs-grid" style="align-items:start">
+  <div class="price-grid">
     <div class="reveal"><h3>Bookkeeping plans</h3><ul class="price-list">
-      <li><span><strong>Essentials</strong><br><small>Sole proprietors, freelancers &amp; small businesses. Monthly P&amp;L and Balance Sheet, year-round access.</small></span><strong>$395/mo</strong></li>
-      <li><span><strong>Professional</strong><br><small>Everything in Essentials, plus payroll support, 1099 prep &amp; issuance, quarterly check-in calls.</small></span><strong>$595/mo</strong></li>
-      <li><span><strong>Elite</strong><br><small>Everything in Professional, plus two tax planning &amp; estimation sessions a year. For corporations &amp; partnerships.</small></span><strong>$895/mo</strong></li>
-      <li><span><strong>Bookkeeping catch-up</strong><br><small>Behind on your books? Records reconciled and brought current.</small></span><strong>from $995</strong></li></ul></div>
+      <li><span><strong>Essentials</strong><small>Sole proprietors, freelancers &amp; small businesses. Monthly P&amp;L and Balance Sheet, year-round access.</small></span><strong>$395/mo</strong></li>
+      <li><span><strong>Professional</strong><small>Everything in Essentials, plus payroll support, 1099 prep &amp; issuance, quarterly check-in calls.</small></span><strong>$595/mo</strong></li>
+      <li><span><strong>Elite</strong><small>Everything in Professional, plus two tax planning &amp; estimation sessions a year. For corporations &amp; partnerships.</small></span><strong>$895/mo</strong></li>
+      <li><span><strong>Bookkeeping catch-up</strong><small>Behind on your books? Records reconciled and brought current.</small></span><strong>from $995</strong></li></ul></div>
     <div class="reveal"><h3>Tax preparation</h3><ul class="price-list">
-      <li><span><strong>Simple return</strong><br><small>W-2 only, not itemizing. Federal &amp; state.</small></span><strong>$155–$225</strong></li>
-      <li><span><strong>Personal return</strong><br><small>W-2 plus stock, crypto, interest or dividends, or itemizing. Federal &amp; state.</small></span><strong>$250–$450</strong></li>
-      <li><span><strong>Sole proprietor</strong><br><small>Contractors, sole props, rental activity, mixed W-2 &amp; investment income.</small></span><strong>$495+</strong></li>
-      <li><span><strong>Business return</strong><br><small>Partnerships, S-Corps &amp; C-Corps, including K-1 distribution. Federal &amp; state.</small></span><strong>$1,095+</strong></li></ul></div>
+      <li><span><strong>Simple return</strong><small>W-2 only, not itemizing. Federal &amp; state.</small></span><strong>$155–$225</strong></li>
+      <li><span><strong>Personal return</strong><small>W-2 plus stock, crypto, interest or dividends, or itemizing. Federal &amp; state.</small></span><strong>$250–$450</strong></li>
+      <li><span><strong>Sole proprietor</strong><small>Contractors, sole props, rental activity, mixed W-2 &amp; investment income.</small></span><strong>$495+</strong></li>
+      <li><span><strong>Business return</strong><small>Partnerships, S-Corps &amp; C-Corps, including K-1 distribution. Federal &amp; state.</small></span><strong>$1,095+</strong></li></ul></div>
   </div>
   <div class="sec-head center reveal" style="margin-top:4rem"><span class="eyebrow">How it works</span><h2>Four steps, at your pace</h2></div>
   <ol class="rail"><li class="step reveal"><span class="num">1</span><span class="disc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 3.5h3l1.5 4-2 1.3a10 10 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/></svg></span><h3>Get in touch</h3><p>Call, text or send the form with what you need: tax, books or a business question.</p></li><li class="step reveal"><span class="num">2</span><span class="disc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v16M7 20h10M5 8h14M5 8l-2.5 5h5zM19 8l-2.5 5h5z"/></svg></span><h3>Pick the right fit</h3><p>A return type or monthly plan, with the price agreed before work starts.</p></li><li class="step reveal"><span class="num">3</span><span class="disc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><h3>Clean books, filed return</h3><p>Records reconciled and returns prepared with nothing deductible left behind.</p></li><li class="step reveal"><span class="num">4</span><span class="disc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 8a7.5 7.5 0 0 0-13.5 1M5 16a7.5 7.5 0 0 0 13.5-1M19 4v4h-4M5 20v-4h4"/></svg></span><h3>Stay on track</h3><p>We don't disappear after April — we're here to help all year long.</p></li></ol>

@@ -1,10 +1,10 @@
 # Netlify settings for Brandon's live site (bestresolveaccounting.netlify.app)
 
 [build]
-  # Only the Black & gold version (V8) is published on Netlify
-  publish = "2026-11-11-brandon-cpa-v8"
+  # Only V12 (concept C layout in black & gold, chosen 2026-11-12) is published on Netlify
+  publish = "2026-11-12-brandon-cpa-v12"
 
   # Saves deploy credits: on the live site (main), skip the build when a push doesn't
-  # change the V8 folder. Test builds on other branches (staging) are free, so they always build.
+  # change the V12 folder. Test builds on other branches (staging) are free, so they always build.
   # (Exit 0 = skip, anything else = build. A manual "Deploy project" on the same commit always builds.)
-  ignore = "if [ \"$BRANCH\" != \"main\" ] || [ \"$CACHED_COMMIT_REF\" = \"$COMMIT_REF\" ]; then exit 1; fi; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- 2026-11-11-brandon-cpa-v8"
+  ignore = "if [ \"$BRANCH\" != \"main\" ] || [ \"$CACHED_COMMIT_REF\" = \"$COMMIT_REF\" ]; then exit 1; fi; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- 2026-11-12-brandon-cpa-v12"

@@ -488,10 +488,15 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 @media (min-width:1500px){.hero-photo{width:auto;left:52%}}
 .trust{border-top:1px solid var(--fa-rule)}
 /* Section rhythm below How It Works: white, warm grey and black bands alternate */
-.trust,.about,.contact{background:#EFEDE8}
-.services,.pricing{background:#fff}
-.price-foot{background:#F6F5F1}
-.about .facts,.contact-cards li{background:#fff}
+.trust,.services,.pricing,.contact{background:#EFEDE8}
+.about{background:#fff}
+.about .facts{background:#fff;border-color:#D6D3CC}
+.contact-cards li{background:#fff}
+.price-foot{background:#fff}
+.svc-card{background:#fff;border:1px solid #D6D3CC;border-top:3px solid var(--fa-madder);box-shadow:0 14px 30px -22px rgba(0,0,0,.35)}
+.svc-card:hover{border-color:#BDB8AE;border-top-color:var(--fa-rose);box-shadow:0 22px 40px -22px rgba(0,0,0,.45)}
+.ic-wrap{background:#111;color:var(--fa-rose)}
+.svc-card p{color:#444}
 .docs{background:#111;border-top:0;color:#E8E8E8}
 .docs h2{color:#fff}
 .docs p{color:#BBBBBB}

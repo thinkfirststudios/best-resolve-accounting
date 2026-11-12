@@ -543,6 +543,14 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
   .hero h1{font-size:clamp(3rem,4.4vw,3.9rem)}
 }
 .trust{border-top:1px solid var(--fa-rule)}
+/* Brandon layered above the fading backdrop so the fade never touches him (desktop only) */
+.hero-cut{display:none}
+@media (min-width:960px){
+  .hero .hero-cut{display:block;-webkit-mask-image:none;mask-image:none;background:none!important;pointer-events:none;overflow:visible}
+  /* both layers sized identically: full photo height, anchored right, never cropped on the left */
+  .hero .hero-photo img{position:absolute;top:0;height:100%;width:auto;max-width:none}
+}
+@media (min-width:960px) and (max-width:1499px){.hero .hero-photo img{right:clamp(-190px,(100vw - 1300px) * .62,0px)}}
 .hero h1{font-style:italic;font-weight:600;letter-spacing:-.015em}
 /* Section rhythm below How It Works: white, warm grey and black bands alternate */
 .trust,.services,.contact{background:#EFEDE8}

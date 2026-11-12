@@ -501,3 +501,7 @@ body::before{display:none}
 /* Square-cornered buttons and controls instead of pills (Alex, 2026-11-12) */
 .btn,.nav-pill,.nav a,.menu-btn,.dots-nav .pause{border-radius:4px}
 .cta-band h2 .em{white-space:nowrap}
+
+/* Cleaner accent underline: a thin rule set just below the baseline that breaks around descenders (Alex, 2026-11-12) */
+.em,.js .em:not(.in){background:none;padding-bottom:0;text-decoration:underline;text-decoration-color:var(--bc-oxide);text-decoration-thickness:max(2px,.05em);text-underline-offset:.14em;text-decoration-skip-ink:auto}
+.hero .em,.dark .em,.cta-band .em{text-decoration-color:var(--bc-oxide-light)}

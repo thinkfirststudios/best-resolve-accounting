@@ -4,7 +4,7 @@
   # Only the Black & gold version (V8) is published on Netlify
   publish = "2026-11-11-brandon-cpa-v8"
 
-  # Saves deploy credits: skip the build when a push doesn't change the V8 folder.
-  # (Exit 0 = skip, anything else = build. The first build of a branch, or a manual
-  # "Deploy project" on the same commit, always builds.)
-  ignore = "if [ \"$CACHED_COMMIT_REF\" = \"$COMMIT_REF\" ]; then exit 1; fi; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- 2026-11-11-brandon-cpa-v8"
+  # Saves deploy credits: on the live site (main), skip the build when a push doesn't
+  # change the V8 folder. Test builds on other branches (staging) are free, so they always build.
+  # (Exit 0 = skip, anything else = build. A manual "Deploy project" on the same commit always builds.)
+  ignore = "if [ \"$BRANCH\" != \"main\" ] || [ \"$CACHED_COMMIT_REF\" = \"$COMMIT_REF\" ]; then exit 1; fi; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- 2026-11-11-brandon-cpa-v8"

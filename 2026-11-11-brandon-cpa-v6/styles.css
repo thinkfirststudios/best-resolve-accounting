@@ -528,14 +528,17 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 /* the black photo panel fades into the white page: bottom edge on phones, left edge on desktop */
 .hero-photo::after{display:block;background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,.55) 7%,rgba(255,255,255,0) 20%)}
 @media (min-width:960px){
-  .hero-photo{width:52%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 14%,rgba(0,0,0,.85) 30%,#000 42%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 14%,rgba(0,0,0,.85) 30%,#000 42%)}
+  /* one long gradient: white at the far left easing into his grey backdrop */
+  .hero{background:linear-gradient(90deg,#fff 0%,#F7F7F7 22%,#E6E6E6 38%,#BDBDBD 52%,#8A8A8A 64%)}
+  .hero-photo{width:58%;background:transparent;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.25) 18%,rgba(0,0,0,.7) 34%,#000 50%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.25) 18%,rgba(0,0,0,.7) 34%,#000 50%)}
   .hero-photo::after{display:none}
   .hero h1{font-size:clamp(3rem,4.4vw,3.9rem)}
 }
-@media (min-width:1500px){.hero-photo{width:auto;left:44%}}
+@media (min-width:1500px){.hero-photo{width:auto;left:40%}}
 .trust{border-top:1px solid var(--fa-rule)}
 /* Section rhythm below How It Works: white, warm grey and black bands alternate */
 .trust,.services,.contact{background:#EFEDE8}
+.services{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse 80% 90% at 50% 0%,#FAFAF8 0%,#ECEAE5 45%,#CFCCC5 100%)}
 .about{background:#fff}
 .about .facts{background:#fff;border-color:#D6D3CC}
 .contact-cards li{background:#fff}

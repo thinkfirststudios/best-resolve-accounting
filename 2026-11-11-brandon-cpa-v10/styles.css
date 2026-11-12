@@ -508,6 +508,9 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 .hero .reg-line .sig-inline{font:400 clamp(2.3rem,4vw,2.9rem)/1.1 'Mrs Saint Delafield','Brush Script MT',cursive}
 .hero-sign span{font-size:.875rem}
 
+/* Phones: keep the photo's zoom-in entrance inside its box so it never peeks out below the fade */
+@media (max-width:959px){.hero-photo{overflow:hidden}}
+
 /* ===== Palette: white hero, his photo as a black block, black buttons, gold accents ===== */
 .btn-primary,.btn-primary:hover{color:#fff;box-shadow:none}
 .how .btn-primary,.cta-band .btn-primary,.catchup .btn-primary{background:#fff;color:#4A1626}

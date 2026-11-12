@@ -520,9 +520,14 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 .hero .btn-ghost{color:#111;border-color:#111}
 .hero .btn-ghost:hover{background:#111;color:#fff}
 .hero-photo{background:#111}
-.hero-photo::after{display:none}
-@media (min-width:960px){.hero-photo{-webkit-mask-image:none;mask-image:none;width:40%}.hero h1{font-size:clamp(3rem,4.4vw,3.9rem)}}
-@media (min-width:1500px){.hero-photo{width:auto;left:52%}}
+/* the black photo panel fades into the white page: bottom edge on phones, left edge on desktop */
+.hero-photo::after{display:block;background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,.55) 7%,rgba(255,255,255,0) 20%)}
+@media (min-width:960px){
+  .hero-photo{width:52%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 14%,rgba(0,0,0,.85) 30%,#000 42%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 14%,rgba(0,0,0,.85) 30%,#000 42%)}
+  .hero-photo::after{display:none}
+  .hero h1{font-size:clamp(3rem,4.4vw,3.9rem)}
+}
+@media (min-width:1500px){.hero-photo{width:auto;left:44%}}
 .trust{border-top:1px solid var(--fa-rule)}
 /* Section rhythm below How It Works: white, warm grey and black bands alternate */
 .trust,.services,.contact{background:#EFEDE8}

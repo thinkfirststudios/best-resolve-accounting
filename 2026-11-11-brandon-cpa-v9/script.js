@@ -64,7 +64,8 @@
     });
   }
 
-  // Contact form: sends through FormSubmit to the address in the form's action attribute
+  // Contact form: on the live site (Netlify Forms, marked by a hidden "form-name" field) it posts to Netlify;
+  // otherwise it sends through FormSubmit to the address in the form's action attribute
   var form = document.getElementById('contact-form');
   if (form) {
     var ok = document.getElementById(form.getAttribute('data-success'));
@@ -92,15 +93,23 @@
         done();
         return;
       }
+      var fail = function () {
+        btn.disabled = false; btn.textContent = label;
+        err.textContent = "Your message didn't go through. Please call or text (619) 854-1434, or email bestresolveaccntng@gmail.com.";
+      };
       btn.disabled = true; btn.textContent = 'Sending…';
+      if (form.querySelector('[name="form-name"]')) {
+        fetch('/', {
+          method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        }).then(function (r) { if (!r.ok) throw new Error(r.status); done(); }).catch(fail);
+        return;
+      }
       fetch(action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
         method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
       }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then(done)
-        .catch(function () {
-          btn.disabled = false; btn.textContent = label;
-          err.textContent = "Your message didn't go through. Please call or text (619) 854-1434, or email bestresolveaccntng@gmail.com.";
-        });
+        .catch(fail);
     });
   }
 })();

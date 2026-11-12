@@ -52,6 +52,14 @@
   document.querySelectorAll('a[href^="tel:"]').forEach(function (a) { a.addEventListener('click', function () { track('click_to_call'); }); });
   document.querySelectorAll('a[href="#contact"]').forEach(function (a) { a.addEventListener('click', function () { track('book_consultation_click'); }); });
 
+  // BOOKING LINK: paste Brandon's scheduling link (Calendly or similar) between the quotes, e.g.
+  // 'https://calendly.com/his-name/free-consultation'. Every "Book a free consultation" button then opens it
+  // in a new tab. Leave it empty and the buttons scroll to the contact form, as they do now.
+  var BOOKING_URL = '';
+  if (BOOKING_URL) {
+    document.querySelectorAll('a[href="#contact"]').forEach(function (a) { a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener'; });
+  }
+
   // Contact form: sends through FormSubmit to the address in the form's action attribute
   var form = document.getElementById('contact-form');
   if (form) {

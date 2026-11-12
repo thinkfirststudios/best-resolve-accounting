@@ -529,3 +529,6 @@ table.matrix tbody tr:first-child td{font-size:.9688rem;color:var(--tc-ink-mid)}
 /* ===== About lead and staggered reveals ===== */
 .about-lead{font:700 1.3rem/1.4 var(--f-display)}
 .js .reveal{transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+
+/* Contact form copied from the Wix site: required markers */
+.req{color:#B4413C;font-weight:700}

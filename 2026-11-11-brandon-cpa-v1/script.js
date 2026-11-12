@@ -61,7 +61,7 @@
     var label = btn.textContent;
     var done = function () {
       track('generate_lead', { form: 'consultation' });
-      var nameField = form.querySelector('[name="name"]');
+      var nameField = form.querySelector('[name="first_name"]');
       var first = nameField ? nameField.value.trim().split(' ')[0] : '';
       var who = ok.querySelector('[data-name]');
       if (who && first) who.textContent = ', ' + first;

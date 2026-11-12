@@ -431,3 +431,6 @@ ul.dashes li::before{content:"";position:absolute;left:.2rem;top:1.05rem;width:.
 .how-ic{display:inline-flex;width:3rem;height:3rem;border-radius:50%;align-items:center;justify-content:center;color:var(--fa-rose);background:radial-gradient(circle at 30% 25%,#1E3D63 0%,#11253E 80%);box-shadow:0 0 0 1px rgba(127,208,195,.35);margin-bottom:1rem}
 .how-ic .ic{width:1.5rem;height:1.5rem;stroke-width:1.5}
 .js .reveal{transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+
+/* Contact form copied from the Wix site: required markers */
+.req{color:#B4413C;font-weight:700}

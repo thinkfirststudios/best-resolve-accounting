@@ -565,3 +565,19 @@ body::before{display:none}
 /* Gold buttons: solid fill with a matching border. The gradient tiled into the transparent border and left an off-colour rim. */
 .btn-primary{background:var(--bc-oxide-light);border-color:var(--bc-oxide-light)}
 .btn-primary:hover{background:#C9B266;border-color:#C9B266;box-shadow:none}
+
+/* Legal pages */
+.legal-page .site-header .wrap{justify-content:space-between}
+.legal-back{min-height:44px;padding:.4rem 1rem;font-size:1rem}
+.legal-page .prose{max-width:46rem}
+.legal-page .prose h2{font-size:1.6rem;margin:2.25rem 0 .6rem}
+.legal-page .prose ul{padding-left:1.25rem;margin:0 0 1em}
+.legal-page .prose li{margin-bottom:.4rem}
+.legal-page .draft-band{color:var(--bc-oxide-deep);background:var(--bc-oxide-tint)}
+.legal-foot{padding:1.5rem 0 2rem}
+.legal-foot .foot-bottom{margin-top:0;border-top:0;padding-top:0}
+.site-footer .foot-bottom a{text-decoration:underline;text-decoration-color:var(--bc-oxide-light)}
+.site-header .btn-outline{color:var(--bc-quartz);border-color:rgba(236,234,229,.6)}
+.site-header .btn-outline:hover{background:var(--bc-quartz);color:var(--bc-ink)}
+.legal-page .prose{max-width:var(--wrap)}
+.legal-page .prose > *{max-width:46rem}

@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function track(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
 
   // Header condenses on scroll; the mobile action bar appears once the hero is out of view
@@ -25,6 +26,26 @@
     closeBtn.addEventListener('click', function () { close(); openBtn.focus(); });
     overlay.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) { close(); openBtn.focus(); } });
+  }
+
+  // Scroll reveals with a short stagger among siblings; the How It Works line draws once
+  var targets = document.querySelectorAll('.how-steps, .reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        if (el.classList.contains('reveal') && el.parentElement) {
+          var i = Array.prototype.indexOf.call(el.parentElement.children, el);
+          el.style.transitionDelay = Math.min(i, 5) * 90 + 'ms';
+        }
+        el.classList.add('in');
+        io.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    targets.forEach(function (el) { io.observe(el); });
   }
 
   // Analytics events for the ads: calls and consultation CTAs
@@ -69,40 +90,5 @@
           err.textContent = "Your message didn't go through. Please call or text (619) 854-1434, or email bestresolveaccntng@gmail.com.";
         });
     });
-  }
-})();
-
-/* Motion: headings and groups reveal as they scroll in; the How It Works line (V1) fills with scroll */
-(function () {
-  'use strict';
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('main section:not(.hero) h2').forEach(function (h) { h.setAttribute('data-reveal', ''); });
-  document.querySelectorAll('[data-stagger]').forEach(function (group) {
-    Array.prototype.forEach.call(group.children, function (child, i) { child.style.setProperty('--i', Math.min(i, 7)); });
-  });
-  var els = document.querySelectorAll('[data-reveal], [data-stagger]');
-  if (reduce || !('IntersectionObserver' in window)) {
-    els.forEach(function (el) { el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
-    els.forEach(function (el) { io.observe(el); });
-  }
-
-  var steps = document.querySelector('[data-progress]');
-  if (steps) {
-    var items = steps.querySelectorAll('.step');
-    var queued = false;
-    var update = function () {
-      queued = false;
-      var line = window.innerHeight * 0.6, r = steps.getBoundingClientRect();
-      var p = reduce ? 1 : Math.max(0, Math.min(1, (line - r.top) / r.height));
-      steps.style.setProperty('--p', p.toFixed(3));
-      items.forEach(function (s) { s.classList.toggle('on', reduce || s.getBoundingClientRect().top < line); });
-    };
-    window.addEventListener('scroll', function () { if (!queued) { queued = true; window.requestAnimationFrame(update); } }, { passive: true });
-    window.addEventListener('resize', update);
-    update();
   }
 })();

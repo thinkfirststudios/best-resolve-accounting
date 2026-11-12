@@ -6,11 +6,12 @@ var SEASON_STATE = 'off-season';
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function track(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
 
   var SEASON_TEXT = {
-    'in-season': 'Filing season is open. Book now to get on the calendar.',
-    'off-season': 'A good time to set up monthly bookkeeping or catch up.'
+    'in-season': 'Filing season is open. Book now to get your return on the calendar.',
+    'off-season': 'Off-season: a good time to set up monthly bookkeeping, catch up, or plan ahead.'
   };
   document.querySelectorAll('[data-season-text]').forEach(function (el) {
     el.textContent = SEASON_TEXT[SEASON_STATE] || SEASON_TEXT['off-season'];
@@ -37,6 +38,29 @@ var SEASON_STATE = 'off-season';
     closeBtn.addEventListener('click', function () { close(); openBtn.focus(); });
     overlay.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) { close(); openBtn.focus(); } });
+  }
+
+  // Build-in moments: the How It Works rail, the tax jacket tabs, the plan table rows (each once)
+  var targets = document.querySelectorAll('.rail, .jacket, .table-wrap, .tags, .reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        if (el.classList.contains('reveal') && el.parentElement) {
+          var i = Array.prototype.indexOf.call(el.parentElement.children, el);
+          el.style.transitionDelay = Math.min(i, 5) * 90 + 'ms';
+        }
+        if (el.classList.contains('table-wrap')) {
+          el.querySelectorAll('tbody tr').forEach(function (tr, n) { tr.style.transitionDelay = n * 35 + 'ms'; });
+        }
+        el.classList.add('in');
+        io.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    targets.forEach(function (el) { io.observe(el); });
   }
 
   // Analytics events for the ads: calls and consultation CTAs
@@ -81,40 +105,5 @@ var SEASON_STATE = 'off-season';
           err.textContent = "Your message didn't go through. Please call or text (619) 854-1434, or email bestresolveaccntng@gmail.com.";
         });
     });
-  }
-})();
-
-/* Motion: headings and groups reveal as they scroll in; the How It Works line (V1) fills with scroll */
-(function () {
-  'use strict';
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('main section:not(.hero) h2').forEach(function (h) { h.setAttribute('data-reveal', ''); });
-  document.querySelectorAll('[data-stagger]').forEach(function (group) {
-    Array.prototype.forEach.call(group.children, function (child, i) { child.style.setProperty('--i', Math.min(i, 7)); });
-  });
-  var els = document.querySelectorAll('[data-reveal], [data-stagger]');
-  if (reduce || !('IntersectionObserver' in window)) {
-    els.forEach(function (el) { el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
-    els.forEach(function (el) { io.observe(el); });
-  }
-
-  var steps = document.querySelector('[data-progress]');
-  if (steps) {
-    var items = steps.querySelectorAll('.step');
-    var queued = false;
-    var update = function () {
-      queued = false;
-      var line = window.innerHeight * 0.6, r = steps.getBoundingClientRect();
-      var p = reduce ? 1 : Math.max(0, Math.min(1, (line - r.top) / r.height));
-      steps.style.setProperty('--p', p.toFixed(3));
-      items.forEach(function (s) { s.classList.toggle('on', reduce || s.getBoundingClientRect().top < line); });
-    };
-    window.addEventListener('scroll', function () { if (!queued) { queued = true; window.requestAnimationFrame(update); } }, { passive: true });
-    window.addEventListener('resize', update);
-    update();
   }
 })();

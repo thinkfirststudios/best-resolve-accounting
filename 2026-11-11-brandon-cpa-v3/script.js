@@ -54,10 +54,14 @@
 
   // BOOKING LINK: paste Brandon's scheduling link (Calendly or similar) between the quotes, e.g.
   // 'https://calendly.com/his-name/free-consultation'. Every "Book a free consultation" button then opens it
-  // in a new tab. Leave it empty and the buttons scroll to the contact form, as they do now.
-  var BOOKING_URL = '';
+  // in a new tab. Leave it empty and the buttons scroll to the contact form instead. Menu links named
+  // "Contact" always go to the contact section.
+  var BOOKING_URL = 'https://calendar.app.google/yWFgAbv3nsA1akneA';
   if (BOOKING_URL) {
-    document.querySelectorAll('a[href="#contact"]').forEach(function (a) { a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener'; });
+    document.querySelectorAll('a[href="#contact"]').forEach(function (a) {
+      if (a.textContent.trim() === 'Contact') return;
+      a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener';
+    });
   }
 
   // Contact form: sends through FormSubmit to the address in the form's action attribute

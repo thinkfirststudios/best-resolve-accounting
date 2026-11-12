@@ -599,6 +599,9 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 .rv-placeholder{border:1.5px dashed #BEA040;box-shadow:none}
 .rv-placeholder .rv-slot{color:#7C682A;font-style:italic}
 .rv-foot .g{width:1.6rem;height:1.6rem;flex:none;fill:#555}
+.rv-stars{display:flex;gap:.2rem}
+.rv-stars svg{width:1.15rem;height:1.15rem;fill:#BEA040}
+.review .rv-slot{line-height:1.6}
 .rv-more{text-align:center;margin:2.25rem auto 0;max-width:none}
 .btn-ghost-dark{border:1.5px solid #13233A;color:#13233A;background:transparent}
 .btn-ghost-dark:hover{background:#13233A;color:#fff}

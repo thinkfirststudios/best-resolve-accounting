@@ -601,3 +601,10 @@ body::before{display:none}
 .hero.bg-light .btn-outline:hover{background:var(--bc-ink);color:var(--bc-paper)}
 .hero.bg-light .dots-nav button span{border-color:var(--bc-ink)}
 .hero.bg-light .dots-nav .pause{color:var(--bc-ink);border-color:rgba(20,20,20,.35)}
+
+/* Direct-line band on dark for a strong break between the light About and Services sections */
+.direct.dark{background:radial-gradient(ellipse 60% 120% at 50% 0%,#2A2A2A 0%,#181818 70%);border-top:3px solid var(--bc-oxide)}
+.direct.dark h2{color:#fff}
+.direct.dark .direct-quote p{color:#fff}
+.direct.dark .direct-quote footer{color:var(--bc-oxide-light)}
+.direct.dark .direct-quote footer span{color:var(--bc-quartz-mid)}

@@ -529,12 +529,12 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 .hero-photo::after{display:block;background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,.55) 7%,rgba(255,255,255,0) 20%)}
 @media (min-width:960px){
   /* one long gradient: white at the far left easing into his grey backdrop */
-  .hero{background:linear-gradient(90deg,#fff 0%,#F7F7F7 22%,#E6E6E6 38%,#BDBDBD 52%,#8A8A8A 64%)}
-  .hero-photo{width:58%;background:transparent;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.25) 18%,rgba(0,0,0,.7) 34%,#000 50%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.25) 18%,rgba(0,0,0,.7) 34%,#000 50%)}
+  .hero{background:#fff}
+  /* white behind the text; the grey fades in from where the text column ends */
+  .hero-photo{left:min(calc(max(0px, (100vw - 1320px) / 2) + 2.5rem + 640px), 55%);right:0;width:auto;background:transparent;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 10%,rgba(0,0,0,.8) 22%,#000 32%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 10%,rgba(0,0,0,.8) 22%,#000 32%)}
   .hero-photo::after{display:none}
   .hero h1{font-size:clamp(3rem,4.4vw,3.9rem)}
 }
-@media (min-width:1500px){.hero-photo{width:auto;left:40%}}
 .trust{border-top:1px solid var(--fa-rule)}
 /* Section rhythm below How It Works: white, warm grey and black bands alternate */
 .trust,.services,.contact{background:#EFEDE8}

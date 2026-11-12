@@ -586,3 +586,6 @@ body::before{display:none}
 .js .hero-art .shape,.js .hero-art .person{animation:none}
 .js .hero-art{animation:rise .9s var(--ease) both}
 .hero-art .person img{object-position:50% 15%}
+
+/* CTA band: no stock photo, same dark gradient as the hero */
+.cta-band{background:radial-gradient(ellipse 70% 120% at 80% 50%,#2A2A2A 0%,#181818 70%)}

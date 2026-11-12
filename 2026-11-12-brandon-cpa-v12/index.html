@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#181818">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Nunito:wght@400;700;800&family=Jura:wght@600;700&family=Wittgenstein:wght@600&family=Monda:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261112p">
+<link rel="stylesheet" href="styles.css?v=20261112q">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["AccountingService","Organization"],"name":"Best Resolve Accounting","founder":{"@type":"Person","name":"Brandon Rodriguez","jobTitle":"Certified Public Accountant"},"telephone":"(619) 854-1434","email":"bestresolveaccntng@gmail.com","areaServed":"San Diego, CA","sameAs":["https://www.facebook.com/bestresolveaccounting","https://www.instagram.com/bestresolveaccounting/"]}</script>
 </head>
 <body>
@@ -130,7 +130,7 @@
 </div></section>
 
 <section id="contact"><div class="wrap twocol">
-<div class="reveal"><span class="eyebrow">Contact us</span><h2>Book a free <span class="em">consultation</span></h2><p>Pick a time on Brandon's calendar, or leave your details and the service you're interested in and he'll reach out to set up your call. Prefer to talk now? Call or text.</p>
+<div class="reveal"><span class="eyebrow">Contact us</span><h2>Book a free <span class="em">consultation</span></h2><p>Pick a time on Brandon's calendar, or fill out the form and he'll reach out to set up your call. Prefer to talk now? Call or text.</p>
 <p class="book-now"><a class="btn btn-primary" data-booking href="https://calendar.app.google/yWFgAbv3nsA1akneA" target="_blank" rel="noopener">Pick a time on his calendar</a></p>
 <dl class="kv"><dt>Call or text</dt><dd><a href="tel:+16198541434">(619) 854-1434</a></dd><dt>Email</dt><dd><a href="mailto:bestresolveaccntng@gmail.com">bestresolveaccntng@gmail.com</a></dd><dt>Based in</dt><dd>San Diego, CA</dd><dt>Follow</dt><dd><a href="https://www.instagram.com/bestresolveaccounting/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/bestresolveaccounting" target="_blank" rel="noopener">Facebook</a></dd></dl></div>
 <div class="reveal">
@@ -139,11 +139,15 @@
 <form class="form card" id="contact-form" name="consultation" action="/" method="POST" data-netlify="true" netlify-honeypot="_honey" data-success="c-ok" novalidate>
 <input type="hidden" name="form-name" value="consultation">
 <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-<p class="form-note">All fields are required.</p>
-<div class="row2"><div class="field"><label for="c-fn">First name</label><input id="c-fn" name="first_name" autocomplete="given-name" required></div><div class="field"><label for="c-ln">Last name</label><input id="c-ln" name="last_name" autocomplete="family-name" required></div></div>
-<div class="row2"><div class="field"><label for="c-em">Email</label><input id="c-em" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="c-ph">Phone</label><input id="c-ph" name="phone" type="tel" autocomplete="tel" required></div></div>
-<div class="field"><label for="c-r">Service you're interested in</label><select id="c-r" name="service" required><option value="">Please select one</option><option>Bookkeeping</option><option>Tax filing</option><option>Tax planning</option><option>Business consulting</option><option>Not sure yet</option></select></div>
-<button type="submit" class="btn btn-primary">Book my free consultation</button>
+<h3 class="form-title">Interested in our services?</h3>
+<p class="form-note">Please fill out the information below and we will respond to you as soon as possible.</p>
+<div class="row2"><div class="field"><label for="c-fn">First Name <span class="req" aria-hidden="true">*</span></label><input id="c-fn" name="first_name" autocomplete="given-name" required></div><div class="field"><label for="c-ln">Last Name <span class="req" aria-hidden="true">*</span></label><input id="c-ln" name="last_name" autocomplete="family-name" required></div></div>
+<div class="field"><label for="c-em">Email <span class="req" aria-hidden="true">*</span></label><input id="c-em" name="email" type="email" autocomplete="email" placeholder="Email" required></div>
+<div class="field"><label for="c-ph">Phone <span class="req" aria-hidden="true">*</span></label><input id="c-ph" name="phone" type="tel" autocomplete="tel" placeholder="Phone" required></div>
+<div class="field"><label for="c-bn">Business Name (If Applicable)</label><input id="c-bn" name="business_name" autocomplete="organization" placeholder="Add answer here"></div>
+<div class="field"><label for="c-hh">How did you hear about us?</label><select id="c-hh" name="how_did_you_hear"><option value="">Please select one</option><option>Facebook</option><option>Instagram</option><option>Referral</option></select></div>
+<div class="field"><label for="c-qc">Please enter any questions or comments you may have.</label><textarea id="c-qc" name="questions_or_comments" placeholder="Add answer here" aria-describedby="c-qc-hint"></textarea><p class="hint" id="c-qc-hint">Please don't include Social Security or account numbers.</p></div>
+<button type="submit" class="btn btn-primary">Send</button>
 <p class="error" aria-live="polite"></p></form>
 <div class="success" id="c-ok" tabindex="-1"><h2>Thank you<span data-name></span>!</h2><p>Brandon will reach out to set up your free consultation. If it's urgent, call or text <a href="tel:+16198541434">(619) 854-1434</a>.</p></div></div></div></section>
 

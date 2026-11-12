@@ -618,3 +618,8 @@ body::before{display:none}
 .cta-band .btn-outline{color:var(--bc-ink);border-color:var(--bc-ink)}
 .cta-band .btn-outline:hover{background:var(--bc-ink);color:#fff}
 .cta-band :focus-visible{outline-color:var(--bc-ink)}
+
+/* Contact form copy from Brandon's current site */
+.form-title{font-size:1.7rem;margin:0 0 .4rem}
+.req{color:var(--bc-oxide-deep)}
+.field input::placeholder,.field textarea::placeholder{color:#8C887F}

@@ -472,3 +472,32 @@ body::before{display:none}
 .form .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media (max-width:600px){.form .row2{grid-template-columns:1fr}}
 .fact-tile strong{white-space:nowrap}
+
+/* Hero headlines: always two lines, one phrase per line */
+.slide h1,.slide .h1{max-width:none;font-size:clamp(2.3rem,5.6vw,4.6rem)}
+.slide .em{white-space:nowrap}
+
+/* Copy from V8: hero price note, trust row, direct-line quote, service links, plan leads */
+.hero-note{margin:1.1rem 0 0;font-size:1rem;color:var(--bc-quartz)}
+.hero-note a{color:#fff;font-weight:800;text-decoration-color:var(--bc-oxide-light)}
+.trust{padding:2.25rem 0;background:var(--bc-white);border-bottom:1px solid var(--bc-rule-light)}
+.trust ul{list-style:none;margin:0;padding:0;display:grid;gap:1.25rem 2rem;grid-template-columns:1fr}
+@media (min-width:720px){.trust ul{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1080px){.trust ul{grid-template-columns:repeat(4,1fr)}}
+.trust li{border-left:3px solid var(--bc-oxide);padding-left:1rem}
+.trust strong{display:block;font:700 1.35rem/1.15 var(--f-display);text-transform:uppercase;margin-bottom:.2rem}
+.trust span{color:var(--bc-muted);font-size:1rem}
+.who .lead{font-weight:700}
+.checks .checks-head{font:700 1.45rem/1.15 var(--f-display);margin:0 0 .5rem}
+.checks p{color:var(--bc-muted)}
+.direct-quote{max-width:48rem;margin:0 auto;text-align:center}
+.direct-quote p{font-size:clamp(1.2rem,2.2vw,1.5rem);line-height:1.55;margin:0 auto 1.25rem;max-width:none}
+.direct-quote footer{font:700 1.5rem/1.1 var(--f-display);text-transform:uppercase}
+.direct-quote footer span{display:block;margin-top:.35rem;font:600 .9375rem var(--f-label);letter-spacing:.08em;color:var(--bc-muted)}
+.svc .more{display:inline-block;margin-top:.5rem;font-weight:800;min-height:44px;line-height:44px}
+.rail .inc-lead{margin:.75rem 0 0;font-weight:700;color:var(--bc-ink)}
+.rail .inc{margin-top:.35rem}
+
+/* Square-cornered buttons and controls instead of pills (Alex, 2026-11-12) */
+.btn,.nav-pill,.nav a,.menu-btn,.dots-nav .pause{border-radius:4px}
+.cta-band h2 .em{white-space:nowrap}

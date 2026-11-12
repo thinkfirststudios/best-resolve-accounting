@@ -16,6 +16,10 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // PREVIEW ONLY: ?bg=light|split|glow|ledger shows a hero background option. Remove once one is chosen.
+  var bgOpt = /[?&]bg=(light|split|glow|ledger)/.exec(location.search);
+  if (bgOpt && hero) { hero.classList.add('bg-' + bgOpt[1]); if (bgOpt[1] === 'split') hero.classList.add('bg-light'); }
+
   // Mobile menu
   var openBtn = document.querySelector('.menu-btn');
   var overlay = document.querySelector('.overlay');

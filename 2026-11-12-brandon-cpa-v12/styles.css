@@ -589,3 +589,22 @@ body::before{display:none}
 
 /* CTA band: no stock photo, same dark gradient as the hero */
 .cta-band{background:radial-gradient(ellipse 70% 120% at 80% 50%,#2A2A2A 0%,#181818 70%)}
+
+/* ===== Hero background options for Alex to compare: ?bg=light | split | glow | ledger (preview only) ===== */
+/* 1 + 2: light hero (dark text) */
+.hero.bg-light{background:linear-gradient(180deg,#FAFAF8 0%,#ECEAE5 100%);color:var(--bc-ink)}
+.hero.bg-light .slide h1,.hero.bg-light .slide .h1{color:var(--bc-ink)}
+.hero.bg-light .slide p,.hero.bg-light .hero-note{color:var(--bc-muted)}
+.hero.bg-light .hero-note a{color:var(--bc-ink)}
+.hero.bg-light .eyebrow{color:var(--bc-oxide-deep)}
+.hero.bg-light .em{text-decoration-color:var(--bc-oxide)}
+.hero.bg-light .btn-outline{color:var(--bc-ink);border-color:var(--bc-ink)}
+.hero.bg-light .btn-outline:hover{background:var(--bc-ink);color:var(--bc-paper)}
+.hero.bg-light .dots-nav button span{border-color:var(--bc-ink)}
+.hero.bg-light .dots-nav .pause{color:var(--bc-ink);border-color:rgba(20,20,20,.35)}
+/* 2: split, light text side + charcoal panel behind Brandon */
+@media (min-width:900px){.hero.bg-split{background:linear-gradient(90deg,#FAFAF8 0%,#F2F0EC 52%,#232323 52%,#1A1A1A 100%)}}
+/* 3: lifted charcoal with a warm gold glow behind Brandon */
+.hero.bg-glow{background:radial-gradient(circle at 74% 48%,rgba(210,189,121,.30) 0%,rgba(210,189,121,.10) 28%,rgba(210,189,121,0) 52%),linear-gradient(135deg,#323232 0%,#1E1E1E 100%)}
+/* 4: lifted charcoal with faint gold ledger lines */
+.hero.bg-ledger{background:repeating-linear-gradient(0deg,rgba(210,189,121,.08) 0 1px,transparent 1px 34px),radial-gradient(ellipse 70% 90% at 78% 40%,#383838 0%,#232323 70%)}

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Brandon Rodriguez, CPA | Color options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Wittgenstein:wght@600&family=Sarabun:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bar:#FFFFFF;--ink:#14171A;--mid:#5B6168;--rule:#E3E5E8;--focus:#9A7B1C}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:#FFFFFF;color:var(--ink);font:500 15px/1.3 'Sarabun',system-ui,sans-serif}
+  body{display:flex;flex-direction:column}
+  .bar{flex:none;display:flex;align-items:center;gap:.75rem 1.25rem;padding:.6rem 1rem;background:var(--bar);border-bottom:1px solid var(--rule);box-shadow:0 2px 10px -6px rgba(0,0,0,.25);position:relative;z-index:2}
+  .who{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .who strong{font:600 1.05rem/1.1 'Wittgenstein',Georgia,serif;white-space:nowrap}
+  .who span{font-size:.8rem;color:var(--mid)}
+  .opts{display:flex;gap:.4rem;margin-left:auto;overflow-x:auto;scrollbar-width:none;padding:2px}
+  .opts::-webkit-scrollbar{display:none}
+  .opt{flex:none;display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .8rem .45rem .5rem;border:1px solid var(--rule);border-radius:999px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;transition:border-color .15s,background-color .15s}
+  .opt:hover{border-color:#B9BEC4}
+  .opt[aria-pressed="true"]{border-color:var(--ink);background:#F4F5F6;box-shadow:inset 0 0 0 1px var(--ink)}
+  .opt:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  .sw{width:26px;height:26px;border-radius:50%;flex:none;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);overflow:hidden}
+  .sw::after{content:"";position:absolute;right:0;bottom:0;width:50%;height:50%;background:var(--a)}
+  .opt small{display:block;font-size:.75rem;color:var(--mid);font-weight:500}
+  .lbl{display:flex;flex-direction:column;text-align:left;line-height:1.15}
+  .frame{flex:1;position:relative;min-height:0}
+  iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#fff}
+  @media (max-width:760px){
+    .bar{flex-direction:column;align-items:stretch;gap:.45rem;padding:.5rem .75rem}
+    .who{flex-direction:row;align-items:baseline;gap:.5rem}
+    .opts{margin-left:0;display:grid;grid-template-columns:1fr 1fr;overflow:visible}
+    .opt small{display:none}
+    .opt{padding:.35rem .7rem .35rem .4rem}
+    .sw{width:22px;height:22px}
+  }
+  @media (prefers-reduced-motion:reduce){.opt{transition:none}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="who"><strong>Brandon Rodriguez, CPA</strong><span>Website color options</span></div>
+  <div class="opts" role="group" aria-label="Color option">
+    <button class="opt" type="button" data-v="v8" aria-pressed="true"><span class="sw" style="background:#111111;--a:#D2BD79"></span><span class="lbl">Black &amp; gold<small>His current colors</small></span></button>
+    <button class="opt" type="button" data-v="v9" aria-pressed="false"><span class="sw" style="background:#13233A;--a:#D2BD79"></span><span class="lbl">Navy &amp; gold<small>Recommended</small></span></button>
+    <button class="opt" type="button" data-v="v10" aria-pressed="false"><span class="sw" style="background:#4A1626;--a:#D2BD79"></span><span class="lbl">Burgundy &amp; gold<small>Classic</small></span></button>
+    <button class="opt" type="button" data-v="v11" aria-pressed="false"><span class="sw" style="background:#27323D;--a:#D9955E"></span><span class="lbl">Slate &amp; copper<small>Modern</small></span></button>
+  </div>
+</header>
+<main class="frame"><iframe id="site" title="Website preview" src="../2026-11-11-brandon-cpa-v8/index.html"></iframe></main>
+<script>
+(function () {
+  'use strict';
+  var frame = document.getElementById('site');
+  var btns = [].slice.call(document.querySelectorAll('.opt'));
+  var ids = btns.map(function (b) { return b.getAttribute('data-v'); });
+  var pendingScroll = 0, introSeen = false;
+
+  function path(v) { return '../2026-11-11-brandon-cpa-' + v + '/index.html'; }
+
+  // The signature intro plays on the first option only: mark the others as already seen for this tab
+  function skipIntros() {
+    if (introSeen) return; introSeen = true;
+    try {
+      ids.forEach(function (v) {
+        var a = document.createElement('a'); a.href = path(v);
+        sessionStorage.setItem('br-intro:' + a.pathname, '1');
+      });
+    } catch (e) {}
+  }
+
+  function show(v, keepScroll) {
+    if (ids.indexOf(v) === -1) v = 'v8';
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-v') === v)); });
+    try { history.replaceState(null, '', '?v=' + v); } catch (e) {}
+    pendingScroll = 0;
+    if (keepScroll) { try { pendingScroll = frame.contentWindow.scrollY || 0; } catch (e) {} }
+    if (keepScroll) skipIntros();
+    var target = path(v), hash = '';
+    try { hash = frame.contentWindow.location.hash || ''; } catch (e) {}
+    frame.src = target + (keepScroll ? '' : hash);
+  }
+
+  // Land on the same spot of the page after switching colours
+  frame.addEventListener('load', function () {
+    if (!pendingScroll) return;
+    var y = pendingScroll; pendingScroll = 0;
+    try {
+      var w = frame.contentWindow;
+      w.document.documentElement.style.scrollBehavior = 'auto';
+      w.scrollTo(0, y);
+      setTimeout(function () { w.scrollTo(0, y); w.document.documentElement.style.scrollBehavior = ''; }, 120);
+    } catch (e) {}
+  });
+
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { if (b.getAttribute('aria-pressed') !== 'true') show(b.getAttribute('data-v'), true); });
+  });
+
+  var start = (new URLSearchParams(location.search).get('v')) || 'v8';
+  if (start !== 'v8') { show(start, false); } else { try { history.replaceState(null, '', '?v=v8'); } catch (e) {} }
+  // first load plays the intro once; later switches skip it
+  frame.addEventListener('load', skipIntros, { once: true });
+})();
+</script>
+</body>
+</html>

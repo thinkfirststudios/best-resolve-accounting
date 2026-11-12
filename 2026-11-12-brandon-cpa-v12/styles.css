@@ -505,3 +505,16 @@ body::before{display:none}
 /* Cleaner accent underline: a thin rule set just below the baseline that breaks around descenders (Alex, 2026-11-12) */
 .em,.js .em:not(.in){background:none;padding-bottom:0;text-decoration:underline;text-decoration-color:var(--bc-oxide);text-decoration-thickness:max(2px,.05em);text-underline-offset:.14em;text-decoration-skip-ink:auto}
 .hero .em,.dark .em,.cta-band .em{text-decoration-color:var(--bc-oxide-light)}
+
+/* About: Brandon's portrait column, no second photo row */
+@media (min-width:960px){.about3{grid-template-rows:auto}.about3 .col-a{grid-row:auto}}
+.about3 .tall img{object-position:50% 20%}
+
+/* Wordmark from the previous version: Brandon's name over "CPA · Best Resolve Accounting" */
+.logo.brand{gap:0;min-height:44px}
+.bw{display:flex;flex-direction:column;line-height:1}
+.bw1{font:600 1.5rem/1 'Wittgenstein',Georgia,serif;color:#fff;letter-spacing:0}
+.bw2{font:700 .6875rem/1.2 'Monda',system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--bc-oxide-light);margin-top:.4rem}
+@media (max-width:380px){.bw1{font-size:1.25rem}.bw2{letter-spacing:.14em}}
+.bw2{white-space:nowrap}
+@media (max-width:420px){.bw1{font-size:1.3rem}.bw2{font-size:.625rem;letter-spacing:.1em}}

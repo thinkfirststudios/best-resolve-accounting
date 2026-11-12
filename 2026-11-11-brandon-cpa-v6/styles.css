@@ -503,6 +503,11 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 .price-help a{font-weight:700}
 @media (min-width:900px){.plan-who{min-height:5em;line-height:1.6}}
 
+/* Hero sign-off in his signature script */
+.hero-sign{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem 1rem;margin-top:1.25rem}
+.hero .reg-line .sig-inline{font:400 clamp(2.3rem,4vw,2.9rem)/1.1 'Mrs Saint Delafield','Brush Script MT',cursive}
+.hero-sign span{font-size:.875rem}
+
 /* ===== Palette: white hero, his photo as a black block, black buttons, gold accents ===== */
 .btn-primary,.btn-primary:hover{color:#fff;box-shadow:none}
 .how .btn-primary,.cta-band .btn-primary,.catchup .btn-primary{background:#fff;color:#111}

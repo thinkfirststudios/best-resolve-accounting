@@ -503,6 +503,11 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 .price-help a{font-weight:700}
 @media (min-width:900px){.plan-who{min-height:5em;line-height:1.6}}
 
+/* Hero sign-off in his signature script */
+.hero-sign{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem 1rem;margin-top:1.25rem}
+.hero .reg-line .sig-inline{font:400 clamp(2.3rem,4vw,2.9rem)/1.1 'Mrs Saint Delafield','Brush Script MT',cursive}
+.hero-sign span{font-size:.875rem}
+
 /* ===== Palette: business card (charcoal, white, gold) ===== */
 .btn-primary{box-shadow:0 10px 24px -12px rgba(201,162,77,.55)}
 .hero::before{background:radial-gradient(ellipse at 10% 15%,rgba(201,162,77,.16) 0%,transparent 55%)}

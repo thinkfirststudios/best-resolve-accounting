@@ -434,3 +434,12 @@ ul.dashes li::before{content:"";position:absolute;left:.2rem;top:1.05rem;width:.
 
 /* Contact form copied from the Wix site: required markers */
 .req{color:#B4413C;font-weight:700}
+
+/* Wide screens: the hero grows with the viewport and the photo starts at the centre line, so he sits closer to the headline */
+@media (min-width:1500px){
+  .hero{min-height:clamp(640px,42vw,820px)}
+  .hero-photo{left:50%;width:auto}
+}
+
+/* "See pricing" always sits whole on its own line under the prices */
+.fee-line .see-pricing{display:inline-block;white-space:nowrap;margin-top:.15rem;font-weight:700}

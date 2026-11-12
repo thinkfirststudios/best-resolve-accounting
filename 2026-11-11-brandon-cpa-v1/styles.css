@@ -72,7 +72,8 @@ section{padding:clamp(4rem,9vw,7rem) 0}
 .hero-photo{position:relative}
 .hero-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(0deg,var(--navy),rgba(17,37,62,0))}
 .hero-copy{position:relative;padding:1.25rem 0 3.5rem}
-.hero h1{color:#fff;max-width:12ch}
+.hero h1{color:#fff;font-size:clamp(2rem,9.2vw,3.4rem)}
+.hero h1 span{display:block;white-space:nowrap}
 .hero p{font-size:1.1875rem;color:var(--on-navy);max-width:31rem}
 .hero .actions a:not(.btn){color:#fff;text-decoration-color:var(--teal-light)}
 .hero .since{font-size:.9375rem;color:var(--on-navy-muted);margin:2rem 0 0;padding-top:1.25rem;border-top:1px solid var(--navy-line);max-width:31rem}
@@ -82,7 +83,8 @@ section{padding:clamp(4rem,9vw,7rem) 0}
   .hero-photo img{height:100%;aspect-ratio:auto;object-position:78% 22%}
   .hero-photo::after{display:none}
   .hero .wrap{width:100%}
-  .hero-copy{padding:5rem 0;max-width:34rem}
+  .hero-copy{padding:5rem 0;max-width:46rem}
+  .hero h1{font-size:clamp(3rem,5.1vw,4.4rem)}
 }
 
 /* How it works: the anchor section */

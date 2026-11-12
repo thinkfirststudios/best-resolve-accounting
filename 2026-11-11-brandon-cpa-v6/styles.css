@@ -487,4 +487,15 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
 @media (min-width:960px){.hero-photo{-webkit-mask-image:none;mask-image:none;width:40%}.hero h1{font-size:clamp(3rem,4.4vw,3.9rem)}}
 @media (min-width:1500px){.hero-photo{width:auto;left:52%}}
 .trust{border-top:1px solid var(--fa-rule)}
+/* Section rhythm below How It Works: white, warm grey and black bands alternate */
+.trust,.about,.contact{background:#EFEDE8}
+.services,.pricing{background:#fff}
+.price-foot{background:#F6F5F1}
+.about .facts,.contact-cards li{background:#fff}
+.docs{background:#111;border-top:0;color:#E8E8E8}
+.docs h2{color:#fff}
+.docs p{color:#BBBBBB}
+.docs .eyebrow{color:var(--fa-rose)}
+.industry-tags li{background:#1C1C1C;border-color:#333;border-left-color:var(--fa-rose);color:#fff}
+.cta-band{border-top:1px solid #2A2A2A}
 :root{--intro-bg:#fff;--intro-ink:#111;--intro-accent:var(--fa-madder);--intro-sub:#555}

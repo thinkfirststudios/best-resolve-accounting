@@ -608,3 +608,13 @@ body::before{display:none}
 .direct.dark .direct-quote p{color:#fff}
 .direct.dark .direct-quote footer{color:var(--bc-oxide-light)}
 .direct.dark .direct-quote footer span{color:var(--bc-quartz-mid)}
+
+/* Closing CTA band in solid gold so it never blends into the dark footer */
+.cta-band{background:var(--bc-oxide-light);color:var(--bc-ink)}
+.cta-band h2,.cta-band p{color:var(--bc-ink)}
+.cta-band .em{text-decoration-color:var(--bc-ink)}
+.cta-band .btn-primary{background:var(--bc-ink);border-color:var(--bc-ink);color:#fff}
+.cta-band .btn-primary:hover{background:#333;border-color:#333;color:#fff}
+.cta-band .btn-outline{color:var(--bc-ink);border-color:var(--bc-ink)}
+.cta-band .btn-outline:hover{background:var(--bc-ink);color:#fff}
+.cta-band :focus-visible{outline-color:var(--bc-ink)}

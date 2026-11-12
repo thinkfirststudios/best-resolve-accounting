@@ -2,7 +2,6 @@
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function track(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
 
   // Header condenses on scroll; the mobile action bar appears once the hero is out of view
@@ -26,17 +25,6 @@
     closeBtn.addEventListener('click', function () { close(); openBtn.focus(); });
     overlay.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) { close(); openBtn.focus(); } });
-  }
-
-  // One reveal: the How It Works steps and their connecting line, once
-  var targets = document.querySelectorAll('.how-steps');
-  if (reduce || !('IntersectionObserver' in window)) {
-    targets.forEach(function (el) { el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -12% 0px' });
-    targets.forEach(function (el) { io.observe(el); });
   }
 
   // Analytics events for the ads: calls and consultation CTAs

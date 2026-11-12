@@ -25,13 +25,30 @@
   }
 </script>
 
+<!-- Signature intro: shown once per browser session per page; skipped for reduced motion; removes itself after 6s as a failsafe -->
+<script>
+  (function () {
+    var d = document.documentElement, k = 'br-intro:' + location.pathname;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    try { if (sessionStorage.getItem(k)) return; } catch (e) {}
+    d.classList.add('intro-on');
+    setTimeout(function () { d.classList.remove('intro-on'); }, 6000);
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Wittgenstein:wght@500;600;700&family=Sarala:wght@400;700&family=Monda:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Wittgenstein:wght@500;600;700&family=Sarala:wght@400;700&family=Monda:wght@400;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/brandon-hero-1800.webp" media="(min-width:960px)">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"Brandon Rodriguez, CPA | Best Resolve Accounting","founder":{"@type":"Person","name":"Brandon Rodriguez","jobTitle":"Certified Public Accountant"},"foundingDate":"2019","telephone":"+1-619-854-1434","email":"bestresolveaccntng@gmail.com","areaServed":"San Diego, CA","priceRange":"$155–$1,095+","sameAs":["https://www.facebook.com/bestresolveaccounting/","https://www.instagram.com/bestresolveaccounting/"]}</script>
 </head>
 <body>
+<div class="intro-overlay" aria-hidden="true">
+  <div class="sig">
+    <div class="sig-write"><span class="sig-name">Brandon Rodriguez</span></div>
+    <svg class="sig-flourish" viewBox="0 0 400 30" preserveAspectRatio="none" focusable="false"><path pathLength="1" d="M6 20 C 90 30, 190 27, 280 17 S 372 6, 394 12"/></svg>
+    <p class="sig-sub">Certified Public Accountant</p>
+  </div>
+</div>
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="topbar"><div class="wrap">

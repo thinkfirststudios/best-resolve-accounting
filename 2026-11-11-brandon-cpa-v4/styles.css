@@ -443,3 +443,24 @@ ul.dashes li::before{content:"";position:absolute;left:.2rem;top:1.05rem;width:.
 
 /* "See pricing" always sits whole on its own line under the prices */
 .fee-line .see-pricing{display:inline-block;white-space:nowrap;margin-top:.15rem;font-weight:700}
+
+/* ===== Signature intro on first load ===== */
+.intro-overlay{display:none;position:fixed;inset:0;z-index:3000;flex-direction:column;align-items:center;justify-content:center;background:var(--intro-bg);color:var(--intro-ink);transition:transform .8s cubic-bezier(.76,0,.24,1)}
+html.intro-on .intro-overlay,.intro-overlay.out{display:flex}
+.intro-overlay.out{transform:translateY(-100%)}
+.sig{width:min(92vw,680px);text-align:center}
+.sig-write{display:inline-block;padding:.15em .45em .1em;clip-path:inset(0 100% 0 0)}
+.sig-name{font:400 clamp(3.3rem,13vw,6.8rem)/1.15 'Mrs Saint Delafield','Brush Script MT',cursive;color:var(--intro-ink);white-space:nowrap}
+.go .sig-write{animation:sigWrite 1.5s cubic-bezier(.5,.1,.35,1) forwards}
+.sig-flourish{display:block;width:62%;height:26px;margin:-.6rem auto 0;overflow:visible}
+.sig-flourish path{fill:none;stroke:var(--intro-accent);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;vector-effect:non-scaling-stroke}
+.go .sig-flourish path{animation:sigLine .7s ease-out 1.15s forwards}
+.sig-sub{margin:1.1rem 0 0;font:700 .75rem/1.4 var(--f-label);letter-spacing:.32em;text-transform:uppercase;color:var(--intro-sub);opacity:0;max-width:none}
+.go .sig-sub{animation:sigFade .5s ease 1.45s forwards}
+@keyframes sigWrite{to{clip-path:inset(0 0 0 0)}}
+@keyframes sigLine{to{stroke-dashoffset:0}}
+@keyframes sigFade{to{opacity:1}}
+/* hold the hero's own entrance until the intro lifts */
+html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){.intro-overlay{display:none!important}}
+:root{--intro-bg:var(--fa-night);--intro-ink:#fff;--intro-accent:var(--fa-rose);--intro-sub:var(--fa-on-dark-mid)}

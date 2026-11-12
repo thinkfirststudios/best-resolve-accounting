@@ -92,3 +92,22 @@
     });
   }
 })();
+
+/* Signature intro: writes the name, then lifts away and lets the hero animate in */
+(function () {
+  'use strict';
+  var d = document.documentElement, ov = document.querySelector('.intro-overlay');
+  if (!ov) return;
+  if (!d.classList.contains('intro-on')) { ov.parentNode.removeChild(ov); return; }
+  try { sessionStorage.setItem('br-intro:' + location.pathname, '1'); } catch (e) {}
+  var done = false, started = false, timer;
+  function finish() {
+    if (done) return; done = true; clearTimeout(timer);
+    ov.classList.add('out');
+    d.classList.remove('intro-on');
+    setTimeout(function () { if (ov.parentNode) ov.parentNode.removeChild(ov); }, 850);
+  }
+  function go() { if (started) return; started = true; ov.classList.add('go'); timer = setTimeout(finish, 2500); }
+  if (document.fonts && document.fonts.load) { document.fonts.load('64px "Mrs Saint Delafield"').then(go, go); setTimeout(go, 900); } else { go(); }
+  ['click', 'keydown', 'touchstart', 'wheel'].forEach(function (t) { window.addEventListener(t, finish, { once: true, passive: true }); });
+})();

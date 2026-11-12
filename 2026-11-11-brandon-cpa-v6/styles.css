@@ -533,9 +533,17 @@ html.intro-on .hero,html.intro-on .hero *{animation-play-state:paused!important}
   /* white behind the text; the grey fades in from where the text column ends */
   .hero-photo{left:min(calc(max(0px, (100vw - 1320px) / 2) + 2.5rem + 640px), 55%);right:0;width:auto;background:transparent;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 10%,rgba(0,0,0,.8) 22%,#000 32%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 10%,rgba(0,0,0,.8) 22%,#000 32%)}
   .hero-photo::after{display:none}
+  /* show the right-hand edge of the photo so he sits closer to the text */
+  .hero-photo img{object-position:100% 20%}
+}
+/* very wide screens: slide the photo left inside its panel; matching grain-grey fills the right edge */
+@media (min-width:1500px){
+  .hero-photo{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),linear-gradient(180deg,#4F4F4F,#535353)}
+  .hero-photo img{position:absolute;top:0;right:clamp(0px,(100vw - 1500px) * .55,300px);height:100%;width:auto;max-width:none;-webkit-mask-image:linear-gradient(270deg,transparent 0,#000 7%);mask-image:linear-gradient(270deg,transparent 0,#000 7%)}
   .hero h1{font-size:clamp(3rem,4.4vw,3.9rem)}
 }
 .trust{border-top:1px solid var(--fa-rule)}
+.hero h1{font-style:italic;font-weight:600;letter-spacing:-.015em}
 /* Section rhythm below How It Works: white, warm grey and black bands alternate */
 .trust,.services,.contact{background:#EFEDE8}
 .services{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse 80% 90% at 50% 0%,#FAFAF8 0%,#ECEAE5 45%,#CFCCC5 100%)}

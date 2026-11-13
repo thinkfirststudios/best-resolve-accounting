@@ -629,3 +629,5 @@ body::before{display:none}
 @media (max-width:899px){.hero-art{width:min(80%,380px)}}
 /* Hero photo has extra backdrop above his head; anchor it to the top so his hair clears the shape's point */
 .hero-art .person img{object-position:50% 0}
+/* Less headroom: his hair sits just under the shape's point without being clipped */
+.hero-art .person img{object-position:50% 80%}

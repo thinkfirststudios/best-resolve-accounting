@@ -623,3 +623,7 @@ body::before{display:none}
 .form-title{font-size:1.7rem;margin:0 0 .4rem}
 .req{color:var(--bc-oxide-deep)}
 .field input::placeholder,.field textarea::placeholder{color:#8C887F}
+
+/* Brandon asked for a smaller hero photo (2026-11-13) */
+@media (min-width:900px){.hero-art{width:min(100%,460px)}}
+@media (max-width:899px){.hero-art{width:min(80%,380px)}}

@@ -627,3 +627,5 @@ body::before{display:none}
 /* Brandon asked for a smaller hero photo (2026-11-13) */
 @media (min-width:900px){.hero-art{width:min(100%,460px)}}
 @media (max-width:899px){.hero-art{width:min(80%,380px)}}
+/* Hero photo has extra backdrop above his head; anchor it to the top so his hair clears the shape's point */
+.hero-art .person img{object-position:50% 0}
